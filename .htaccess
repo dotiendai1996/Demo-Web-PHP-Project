@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# block user access files index.html
+ErrorDocument 404 /shop2408/view/404error.view.php
+# RewriteRule ^/?public\/source\/index\.html - [F,L]
+
+RewriteRule ^trang-chu$ index.php
+RewriteRule ^gio-hang$ shopping_cart.php
+RewriteRule ^thanh-toan$ checkout.php 
+RewriteRule ^404.html$ 404error.php
+
+RewriteRule ^order/([0-9a-zA-Z]*)$ order-confirm.php?token=$1
+
+RewriteRule ^([0-9]+)-([0-9a-z-]+).html$ single_product.php?id=$1&url=$2
+
+#detail-product.php?id=7&url=iphone-7-plus-32gb
+# RewriteRule ^([0-9a-z-]+)([0-9a-z-]*).html$ detail-product.php?url=$1&id=$2
+#iphone-x-256-2.html
+RewriteRule ^([a0-9a-z-]+)$ type_product.php?url=$1
+RewriteRule ^([a0-9a-z-]+)/page/([0-9]*)$ type_product.php?url=$1&page=$2
